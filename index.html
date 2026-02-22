@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Académico | Plataforma de Cursos UDES</title>
+</head>
+
+<body>
+    <header>
+        <h1>Registro de Estudiante</h1>
+        <p>Sistema de inscripción para la plataforma de cursos de extensión académica.</p>
+    </header>
+
+    <main>
+        <form action="/api/registro-estudiante" method="POST">
+
+            <fieldset>
+                <legend>Información Personal</legend>
+
+                <label for="nombre">Nombre completo *</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Andrés" required autofocus
+                    autocomplete="given-name">
+
+                <label for="apellido">Apellidos *</label>
+                <input type="text" id="apellido" name="apellido" placeholder="Ej: Pérez Gómez" required
+                    autocomplete="family-name">
+
+                <label for="email">Correo Electrónico Institucional *</label>
+                <input type="email" id="email" name="email" placeholder="estudiante@udes.edu.co" required
+                    autocomplete="email">
+
+                <label for="telefono">Teléfono Móvil *</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="+57 300 123 4567"
+                    pattern="[+][0-9]{2} [0-9]{3} [0-9]{3} [0-9]{4}" aria-describedby="tel-ayuda" required>
+                <small id="tel-ayuda">Formato requerido: +57 300 123 4567</small>
+
+                <label for="fecha-nacimiento">Fecha de Nacimiento *</label>
+                <input type="date" id="fecha-nacimiento" name="fecha_nacimiento" min="1950-01-01" max="2008-12-31"
+                    required>
+
+                <p id="genero-label">Género *</p>
+                <div role="group" aria-labelledby="genero-label">
+                    <input type="radio" id="genero-m" name="genero" value="m" required>
+                    <label for="genero-m">Masculino</label>
+
+                    <input type="radio" id="genero-f" name="genero" value="f">
+                    <label for="genero-f">Femenino</label>
+
+                    <input type="radio" id="genero-otro" name="genero" value="otro">
+                    <label for="genero-otro">Otro</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Perfil Académico</legend>
+
+                <label for="nivel-estudio">Nivel de Estudio Actual *</label>
+                <select id="nivel-estudio" name="nivel_estudio" required>
+                    <option value="">Seleccione un nivel...</option>
+                    <option value="pregrado">Pregrado</option>
+                    <option value="posgrado">Posgrado / Maestría</option>
+                    <option value="extension">Curso de Extensión</option>
+                </select>
+
+                <label for="semestre">Semestre a cursar (1-10) *</label>
+                <input type="number" id="semestre" name="semestre" min="1" max="10" placeholder="Ej: 5" required>
+
+                <label for="portfolio">URL del Portafolio o LinkedIn</label>
+                <input type="url" id="portfolio" name="portfolio" placeholder="https://linkedin.com/in/usuario">
+
+                <label for="documento">Cargar Documento de Identidad (PDF/JPG) *</label>
+                <input type="file" id="documento" name="documento" accept=".pdf, .jpg, .jpeg" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Credenciales de Acceso</legend>
+
+                <label for="password">Contraseña *</label>
+                <input type="password" id="password" name="password" minlength="8" placeholder="Mínimo 8 caracteres"
+                    aria-describedby="pass-ayuda" required autocomplete="new-password">
+                <small id="pass-ayuda">Debe contener al menos 8 caracteres para garantizar la seguridad
+                    criptográfica.</small>
+
+                <label for="password-confirm">Confirmar Contraseña *</label>
+                <input type="password" id="password-confirm" name="password_confirm" minlength="8" required
+                    autocomplete="new-password">
+            </fieldset>
+
+            <fieldset>
+                <legend>Comentarios y Consentimiento</legend>
+
+                <label for="bio">Expectativas del curso (Breve biografía)</label>
+                <textarea id="bio" name="biografia" rows="4" maxlength="500"
+                    placeholder="Cuéntanos qué esperas aprender en este módulo..."></textarea>
+
+                <input type="checkbox" id="newsletter" name="newsletter" value="si">
+                <label for="newsletter">Deseo recibir el boletín informativo del programa</label>
+                <br>
+                <input type="checkbox" id="terminos" name="terminos" value="si" required aria-required="true">
+                <label for="terminos">Acepto los términos, condiciones y políticas de tratamiento de datos *</label>
+            </fieldset>
+
+            <div class="form-actions">
+                <button type="submit">Procesar Registro Académico</button>
+                <button type="reset">Limpiar Formulario</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <hr>
+        <p>&copy; 2026 Sistema de Gestión Académica.</p>
+    </footer>
+</body>
+
+</html>
